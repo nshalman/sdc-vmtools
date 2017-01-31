@@ -28,9 +28,13 @@ all:
 
 #Used for packaging for illumos/OmniOS
 DESTDIR=cache
-install:
+cache/%: src/illumos/%.c
+	mkdir -p cache
+	$(CC) -o $@ $<
+install: cache/cryptpass
 	mkdir -p $(DESTDIR)/lib
 	cp -r src/illumos/lib/smartdc $(DESTDIR)/lib
+	cp cache/cryptpass $(DESTDIR)/lib/smartdc
 	mkdir -p $(DESTDIR)/etc/rc3.d
 	mv $(DESTDIR)/lib/smartdc/joyent_rc.local $(DESTDIR)/etc/rc3.d/Ssmartdc_guest
 
