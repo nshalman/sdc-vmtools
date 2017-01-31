@@ -10,5 +10,9 @@
 # load common functions and vars
 . /lib/smartdc/lib_smartdc_scripts.cfg
 
-lib_smartdc_info "Data drive formatting not implemented yed"
+if [[ -b /dev/dsk/c4t0d0 ]]
+then
+  lib_smartdc_info "Creating 'data' pool on c4t0d0"
+  zpool create data c4t0d0
+fi
 exit 0
