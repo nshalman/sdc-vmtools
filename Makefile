@@ -39,7 +39,7 @@ install: cache/cryptpass
 	mv $(DESTDIR)/lib/smartdc/joyent_rc.local $(DESTDIR)/etc/rc3.d/Ssmartdc_guest
 
 uninstall:
-	rm -r $(DESTDIR)/lib/smartdc
-	rm $(DESTDIR)/etc/rc3.d/Ssmartdc_guest
+	rm -rf $(DESTDIR)/lib/smartdc
+	rm -f $(DESTDIR)/etc/rc3.d/Ssmartdc_guest
 
 .PHONY: clean iso tar all

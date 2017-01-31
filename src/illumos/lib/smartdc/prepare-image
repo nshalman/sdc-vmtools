@@ -153,6 +153,9 @@ case `uname -s` in
     cleanup_root
     cleanup_metadata
     ;;
+  SunOS)
+    echo 'asy:b 0600 root sys' >> /etc/minor_perm
+    ;;
   *)
     warn "OS specific features not implemented"
     ;;
